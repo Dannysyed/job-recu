@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-
+import com.google.firebase.storage.FirebaseStorage
 class CandidateAdapter(
     private val candidates: List<Candidate>,
     private val onClick: (Candidate) -> Unit
@@ -34,9 +34,13 @@ class CandidateAdapter(
         fun bind(candidate: Candidate) {
             nameTextView.text = candidate.name
             titleTextView.text = candidate.title
-            Glide.with(itemView.context)
-                .load(candidate.photoUrl)
-                .into(photoImageView)
+            val storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(candidate.photoUrl)
+// making the use of FirebaseStorage to display candidates pics
+            storageReference.downloadUrl.addOnSuccessListener { uri ->
+                Glide.with(itemView.context)
+                    .load(uri)
+                    .into(photoImageView)
+            }
 
             itemView.setOnClickListener {
                 onClick(candidate)

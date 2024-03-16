@@ -27,7 +27,7 @@ class CandidateActivity : AppCompatActivity() {
         }
         recyclerViewCandidates.adapter = adapter
 
-        // Fetch candidates from Firebase
+        // Fetching candidates from Firebase
         val database = FirebaseDatabase.getInstance().getReference("candidates")
         println(database)
         database.addValueEventListener(object : ValueEventListener {

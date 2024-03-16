@@ -40,6 +40,7 @@ class DetailActivity : AppCompatActivity() {
                             .load(uri)
                             .into(imageViewDetailPhoto)
                     }
+
                     isConnected = false
                     updateConnectButton()
                 }
