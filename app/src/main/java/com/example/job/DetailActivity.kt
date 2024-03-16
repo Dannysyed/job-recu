@@ -1,6 +1,7 @@
 package com.example.job
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.google.firebase.database.FirebaseDatabase
@@ -17,10 +18,14 @@ class DetailActivity : AppCompatActivity() {
         val imageViewDetailPhoto: ImageView = findViewById(R.id.imageViewDetailPhoto)
 
         val candidateId = intent.getStringExtra("candidateId")
+        Log.d("DetailActivity", "Candidate ID: $candidateId")
         if (candidateId != null) {
             val database = FirebaseDatabase.getInstance().getReference("candidates").child(candidateId)
+            Log.d("DetailActivity", "Candidate ID: $database")
             database.get().addOnSuccessListener { dataSnapshot ->
                 val candidate = dataSnapshot.getValue(Candidate::class.java)
+                Log.d("DetailActivity", "Candidate ID: $candidate")
+
                 if (candidate != null) {
                     textViewDetailName.text = candidate.name
                     textViewDetailTitle.text = candidate.title
