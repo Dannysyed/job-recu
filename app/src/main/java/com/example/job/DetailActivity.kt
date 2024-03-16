@@ -8,6 +8,7 @@ import com.bumptech.glide.Glide
 import com.google.firebase.database.FirebaseDatabase
 import android.widget.TextView
 import android.widget.ImageView
+import com.google.firebase.storage.FirebaseStorage
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var buttonConnect: Button
@@ -33,9 +34,12 @@ class DetailActivity : AppCompatActivity() {
                 if (candidate != null) {
                     textViewDetailName.text = candidate.name
                     textViewDetailTitle.text = candidate.title
-                    Glide.with(this)
-                        .load(candidate.photoUrl)
-                        .into(imageViewDetailPhoto)
+                    val storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(candidate.photoUrl)
+                    storageReference.downloadUrl.addOnSuccessListener { uri ->
+                        Glide.with(this)
+                            .load(uri)
+                            .into(imageViewDetailPhoto)
+                    }
                     isConnected = false
                     updateConnectButton()
                 }
@@ -52,4 +56,5 @@ class DetailActivity : AppCompatActivity() {
         val buttonText = if (isConnected) "Disconnect" else "Connect"
         buttonConnect.text = buttonText
     }
+
 }
