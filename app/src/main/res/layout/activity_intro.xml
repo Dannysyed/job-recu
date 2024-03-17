@@ -17,13 +17,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="265dp"
-        android:layout_height="360dp"
-        app:srcCompat="@drawable/Logo"
-        tools:layout_editor_absoluteX="77dp"
-        tools:layout_editor_absoluteY="202dp" />
-
+        android:id="@+id/imageView3"
+        android:layout_width="220dp"
+        android:layout_height="476dp"
+        app:srcCompat="@drawable/logo"
+        tools:layout_editor_absoluteX="95dp"
+        tools:layout_editor_absoluteY="118dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
