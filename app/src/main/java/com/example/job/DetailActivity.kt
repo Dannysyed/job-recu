@@ -18,6 +18,8 @@ class DetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_detail)
 
         val textViewDetailName: TextView = findViewById(R.id.textViewDetailName)
+        val textViewDetailBio: TextView = findViewById(R.id.textViewDetailBio)
+
         val textViewDetailTitle: TextView = findViewById(R.id.textViewDetailTitle)
         val imageViewDetailPhoto: ImageView = findViewById(R.id.imageViewDetailPhoto)
         buttonConnect = findViewById(R.id.buttonConnect)
@@ -34,6 +36,7 @@ class DetailActivity : AppCompatActivity() {
                 if (candidate != null) {
                     textViewDetailName.text = candidate.name
                     textViewDetailTitle.text = candidate.title
+                    textViewDetailBio.text = candidate.bio
                     val storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(candidate.photoUrl)
                     storageReference.downloadUrl.addOnSuccessListener { uri ->
                         Glide.with(this)
