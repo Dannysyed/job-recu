@@ -7,7 +7,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 
 class Register : AppCompatActivity() {
@@ -18,42 +17,45 @@ class Register : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        mAuth= FirebaseAuth.getInstance()
+        mAuth = FirebaseAuth.getInstance()
 
-        //initialize the objects
         val buttonReg = findViewById<Button>(R.id.btnpRegister)
         val editTextEmail = findViewById<EditText>(R.id.etpEmail)
         val editTextPassword = findViewById<EditText>(R.id.etpPassword)
         val editTextConfirmPassword = findViewById<EditText>(R.id.etpConfirmPassword)
 
         buttonReg.setOnClickListener {
-            val email = editTextEmail.text.toString()
-            val password = editTextPassword.text.toString()
-            val confirmpassword = editTextConfirmPassword.text.toString()
+            val email = editTextEmail.text.toString().trim()
+            val password = editTextPassword.text.toString().trim()
+            val confirmPassword = editTextConfirmPassword.text.toString().trim()
 
-            if (TextUtils.isEmpty(email)){
+            if (TextUtils.isEmpty(email)) {
                 Toast.makeText(this, "Please enter email", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            if (TextUtils.isEmpty(password)){
+            if (TextUtils.isEmpty(password)) {
                 Toast.makeText(this, "Please enter password", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            if (TextUtils.isEmpty(confirmpassword)){
+            if (TextUtils.isEmpty(confirmPassword)) {
                 Toast.makeText(this, "Please confirm password", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            if (password != confirmPassword) {
+                Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, OnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        Toast.makeText(this, "Account created", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(applicationContext, SignIn::class.java)
-                        startActivity(intent)
-                    } else {
-                        Toast.makeText(this, "Authentication failed.", Toast.LENGTH_SHORT).show()
-                    }
-                })
+                .addOnSuccessListener {
+                    Toast.makeText(this, "Account created", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(applicationContext, SignIn::class.java)
+                    startActivity(intent)
+                    finish() // Closing the register activity once the user is registered
+                }
+                .addOnFailureListener { e ->
+                    Toast.makeText(this, "Authentication failed: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
         }
     }
 }

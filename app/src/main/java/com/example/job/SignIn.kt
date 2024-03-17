@@ -19,7 +19,7 @@ class SignIn : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
 
-        // Check if user is already signed in
+        // Checking if user is already signed in
         if (mAuth.currentUser != null) {
             startActivity(Intent(applicationContext, IntroActivity::class.java))
             finish()
