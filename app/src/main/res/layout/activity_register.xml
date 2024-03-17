@@ -3,7 +3,8 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:padding="16dp"
-    tools:context=".Register">
+    tools:context=".Register"
+    android:background="@color/colorBackground">
 
     <TextView
         android:id="@+id/textRegisterHeading"
@@ -48,6 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Register"
+        style="@style/CustomButton"
         android:layout_below="@id/etpConfirmPassword"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"/>
