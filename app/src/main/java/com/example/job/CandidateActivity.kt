@@ -41,7 +41,7 @@ class CandidateActivity : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-
+                // Handle possible errors
             }
         })
     }
