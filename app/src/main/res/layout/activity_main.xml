@@ -22,7 +22,7 @@
         android:id="@+id/textViewWelcome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Welcome to Job Finder App!"
+        android:text="Welcome to Job Finder!"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textAlignment="center"
