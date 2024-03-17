@@ -43,6 +43,7 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
+    implementation("com.google.firebase:firebase-auth:21.0.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.google.firebase:firebase-database:20.0.3")
     implementation("com.google.firebase:firebase-storage:20.0.1")
