@@ -1,0 +1,57 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
+    tools:context=".Register"
+    android:background="@color/colorBackground">
+
+    <TextView
+        android:id="@+id/textRegisterHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:textColor="@color/black"
+        android:textSize="32dp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:id="@+id/etpEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:layout_marginTop="16dp"
+        android:inputType="textEmailAddress"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@id/textRegisterHeading"/>
+
+    <EditText
+        android:id="@+id/etpPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:layout_below="@id/etpEmail"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/etpConfirmPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:layout_below="@id/etpPassword"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/btnpRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        style="@style/CustomButton"
+        android:layout_below="@id/etpConfirmPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+</RelativeLayout>

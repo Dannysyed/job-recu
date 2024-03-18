@@ -1,0 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
+    tools:context=".SignIn"
+    android:background="@color/colorBackground">
+
+    <TextView
+        android:id="@+id/textSignInHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign In "
+        android:textColor="@color/black"
+        android:textSize="32dp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:id="@+id/editTextpEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:layout_marginTop="16dp"
+        android:inputType="textEmailAddress"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@id/textSignInHeading"/>
+
+    <EditText
+        android:id="@+id/editTextpPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:layout_below="@id/editTextpEmail"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/btnpSignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign In"
+        style="@style/CustomButton"
+        android:layout_below="@id/editTextpPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+</RelativeLayout>

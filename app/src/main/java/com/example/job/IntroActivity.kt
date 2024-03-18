@@ -11,7 +11,7 @@ class IntroActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intro)
 
-        // Set a delay of 3 seconds before transitioning to MainActivity
+        // it Sets a delay of 3 seconds before transitioning to MainActivity
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(this, MainActivity::class.java))
             finish()
